@@ -1,0 +1,276 @@
+package Trello_Task;
+
+import java.time.Duration;
+import java.util.Iterator;
+import java.util.Random;
+import java.util.Set;
+import java.util.UUID;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.apache.commons.lang3.RandomStringUtils;
+
+public class Object_Class {
+	
+	WebDriver driver;
+	
+	@FindBy(xpath="//button[contains(text(),'Sign up - it’s free')]")
+	WebElement signup;
+	
+	@FindBy(xpath="//input[@id='email']")
+	WebElement email_for_signup;
+	
+	@FindBy(xpath="//input[@id='signup-submit']")
+	WebElement signin_submit;
+	
+		
+	@FindBy(xpath="//span[contains(text(),'Sign up')]")
+	WebElement signup_submit;
+	
+	//Atlasian account
+	
+	@FindBy(xpath="//input[@name='displayName']")
+	WebElement enterfullname;
+	
+	@FindBy(xpath="//input[@name='password']")
+	WebElement enterpassword;
+	
+	@FindBy(xpath="//span[contains(text(),'Sign up')]")
+	WebElement again_signup_submit;
+	
+	
+	
+	@FindBy(xpath="//a[@class='Buttonsstyles__Button-sc-1jwidxo-0 kTwZBr']")
+	WebElement loginButton;
+	
+	@FindBy(xpath="//input[@id='user']")
+	WebElement enteremail;
+	
+	@FindBy(xpath="//input[@id='login']")
+	WebElement submit_continue;
+	
+	@FindBy(xpath="//input[@id='password']")
+	WebElement pasword;
+	
+	@FindBy(xpath="//button[@id='login-submit']")
+	WebElement login_submit;
+	
+	@FindBy(xpath="//div[@class='board-tile mod-add']")
+	WebElement create_board;
+	
+	@FindBy(xpath="//input[@class='nch-textfield__input Hj0IB7nx8rs7UO Hj0IB7nx8rs7UO ysTE7s-UXRkpYP']")
+	WebElement boardtitle;
+	
+	@FindBy(xpath="//div[@id='1670653199153-create-board-select-visibility']")
+	WebElement visibility_dropdown;
+	
+	@FindBy(xpath="//*[@id=\"1670653199153-create-board-select-visibility\"]/div/div/div[1]/div")
+	WebElement visibility_dropdown1;
+	
+	@FindBy(xpath="//button[@class='G2lWjDVJsvar3H Ts+YceGnvTbKoG HPCwi137Em5EYI JIXQq8gDYY04N6']")
+	WebElement click_create;
+	
+	@FindBy(xpath="//input[@class='list-name-input']")
+	WebElement firstlist;
+	
+	@FindBy(xpath="//input[@class='nch-button nch-button--primary mod-list-add-button js-save-edit']")
+	WebElement click_addlist;
+	
+	@FindBy(xpath="//input[@type='text' and @placeholder='Enter list title…']")
+	WebElement secondlist;
+	
+	@FindBy(xpath="//input[@class='nch-button nch-button--primary mod-list-add-button js-save-edit']")
+	WebElement click_addlist2;
+	
+	@FindBy(xpath="//a[@class='icon-lg icon-close dark-hover js-cancel-edit']")
+	WebElement removethird;
+	
+	@FindBy(xpath="//div[@class='card-composer-container js-card-composer-container']//child::a[@class='open-card-composer js-open-card-composer']")
+	WebElement clickaddcard;
+	
+	@FindBy(xpath="//textarea[@class='list-card-composer-textarea js-card-title']")
+	WebElement description_addlist;
+	
+	@FindBy(xpath="//input[@class='nch-button nch-button--primary confirm mod-compact js-add-card']")
+	WebElement clickaddccard1;
+	
+	@FindBy(xpath="//a[@class='icon-lg icon-close dark-hover js-cancel']")
+	WebElement crosss__description;
+	
+	
+	@FindBy(xpath="//textarea[@class='list-card-composer-textarea js-card-title']")
+	WebElement description_addlist2;
+	
+	@FindBy(xpath="//div[@class='u-clearfix']//child::a[@class='button-link js-move-card']")
+	WebElement click_move;
+	
+	@FindBy(xpath="//a[@class='js-move-list']")
+	WebElement click_move2;
+	
+	
+	@FindBy(xpath="//select[@class='js-select-list']")
+	WebElement select_list;
+	
+	@FindBy(xpath="//input[@class='nch-button nch-button--primary wide js-submit']")
+	WebElement move_tolist2;
+	
+	@FindBy(xpath="//a[@class='icon-md icon-close dialog-close-button js-close-window']")
+	WebElement close_window;
+	
+	@FindBy(xpath="//div[@class='board-tile-details is-badged']")
+	WebElement click_board;
+	
+	@FindBy(xpath="//a[@class='list-header-extras-menu dark-hover js-open-list-menu icon-sm icon-overflow-menu-horizontal']")
+	WebElement threedot_onlist1;
+	
+	@FindBy(xpath="//select[@class='js-select-list-pos']")
+	WebElement position;
+	
+	@FindBy(xpath="//input[@class='nch-button nch-button--primary wide js-commit-position']")
+	WebElement move;
+	
+	@FindBy(xpath="//textarea[@class='list-card-edit-title js-edit-card-title']")
+	WebElement edit_cardname;
+	
+	@FindBy(xpath="//input[@class='nch-button nch-button--primary wide js-save-edits']")
+	WebElement click_save;
+	
+	@FindBy(xpath="//a[@class='button-link js-archive-card']//child::span[@class='js-sidebar-action-text']")
+	WebElement archieve;
+	
+	@FindBy(xpath="//div[@class='list-cards u-fancy-scrollbar u-clearfix js-list-cards js-sortable ui-sortable']//following::a[@class='list-card js-member-droppable ui-droppable ui-sortable-handle']")
+	WebElement openpopup;
+	
+	@FindBy(xpath="//span[@class='list-card-title js-card-name']")
+	WebElement openpopup1;
+	
+	@FindBy(xpath="//a[@class='quick-card-editor-buttons-item']//child::span[@class='quick-card-editor-buttons-item-text']")
+	WebElement opencard;
+	
+	@FindBy(xpath="//a[@class='button-link js-delete-card negate']")
+	WebElement delete;
+	
+	@FindBy(xpath="//div[@class='m2N684FcksCyfT']")
+	WebElement Trellovisible;
+	
+	
+	@FindBy(xpath="//textarea[@class='list-card-composer-textarea js-card-title']")
+	WebElement text_forsecondcard;
+	
+	@FindBy(xpath="")
+	WebElement neweditedtext;
+	
+	
+	
+	   Object_Class(WebDriver d){
+		this.driver=d;
+		PageFactory.initElements(d,this);
+	}
+	   
+	   
+	   public void login() throws InterruptedException {
+		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.visibilityOf(signup));
+		
+//		signup.click();
+//		wait.until(ExpectedConditions.visibilityOf(email_for_signup));
+//		email_for_signup.sendKeys("heloasadraza@gmail.com");
+//		wait.until(ExpectedConditions.visibilityOf(signin_submit));
+//		signin_submit.click();
+//		wait.until(ExpectedConditions.visibilityOf(signup_submit));
+//		signup_submit.click();
+		
+		
+		loginButton.click();
+		wait.until(ExpectedConditions.visibilityOf(enteremail));
+		enteremail.sendKeys("asadrazamahmood@gmail.com");
+		submit_continue.click();
+		wait.until(ExpectedConditions.visibilityOf(pasword));
+		pasword.sendKeys("Asad777&");
+		login_submit.click();
+		Assert.assertTrue(Trellovisible.isDisplayed());
+		
+	}
+		public void CreateBoard(String randomstring) {
+			WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(30));
+			wait.until(ExpectedConditions.visibilityOf(create_board));
+			create_board.click();
+			
+			    wait.until(ExpectedConditions.visibilityOf(boardtitle));
+			    boardtitle.sendKeys(randomstring);
+			    click_create.click();
+			    Assert.assertTrue( boardtitle.isDisplayed());
+			   
+		}	
+			public void Createlist(String randomstring) throws InterruptedException {
+				WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(30));
+				wait.until(ExpectedConditions.visibilityOf(firstlist));
+				firstlist.sendKeys(randomstring);
+				click_addlist.click();
+				wait.until(ExpectedConditions.visibilityOf(secondlist));
+				secondlist.sendKeys(randomstring);
+				click_addlist2.click();
+				Thread.sleep(3000);
+				Assert.assertTrue( firstlist.isDisplayed());
+				
+			}
+			
+			public void Addcard(String randomstring) throws InterruptedException {
+				WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(30));
+				wait.until(ExpectedConditions.visibilityOf(clickaddcard));
+				clickaddcard.click();
+				wait.until(ExpectedConditions.visibilityOf(description_addlist));
+				description_addlist.sendKeys(randomstring);
+				Thread.sleep(3000);
+				clickaddccard1.click();
+				wait.until(ExpectedConditions.visibilityOf(text_forsecondcard));
+				Assert.assertTrue(text_forsecondcard.isDisplayed());
+				wait.until(ExpectedConditions.visibilityOf(crosss__description));
+				crosss__description.click();
+				Thread.sleep(3000);
+				
+			}
+			
+			public void Movecard() throws InterruptedException {
+				threedot_onlist1.click();	
+				click_move2.click();
+				Select act=new Select(position);
+				act.selectByVisibleText("2");
+				move.click();
+				Assert.assertNotNull(openpopup1);
+			}
+				
+			public void editcardname() throws InterruptedException {
+			      Actions a = new Actions(driver);
+			      a.moveToElement(openpopup1).contextClick().build().perform();
+			      Thread.sleep(4000);
+			      edit_cardname.sendKeys("newcardname");
+			      Thread.sleep(5000);
+			      click_save.click();
+			      Thread.sleep(4000);
+			      
+			      
+			}
+			public void deletecard() throws InterruptedException {
+				  Actions a = new Actions(driver);
+			      a.moveToElement(openpopup1).contextClick().build().perform();
+			      Thread.sleep(3000);
+			      opencard.click();
+			      Thread.sleep(3000);
+			      Actions action=new Actions(driver);
+			      action.moveToElement(archieve).perform();
+				 // archieve.click();
+				  Thread.sleep(3000);
+				  delete.click();
+			} 
+			      
+				
+}
